@@ -2,10 +2,10 @@ package com.xgsxd.utils;
 
 import com.xgsxd.blog.bean.User;
 
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
@@ -25,11 +25,11 @@ public class LoginFilter implements Filter {
         User user = (User) session.getAttribute("userInfo");
         if (uri.contains("/admin/login")){
             filterChain.doFilter(servletRequest,servletResponse);
-        }
-        if (user != null){
+        } else if (user != null){
             filterChain.doFilter(servletRequest,servletResponse);
         } else{
             request.getRequestDispatcher("/admin/login").forward(servletRequest,servletResponse);
+            return;
         }
 
     }

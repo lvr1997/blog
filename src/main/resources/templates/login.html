@@ -5,17 +5,15 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>博客管理系统</title><![endif]-->
-    <#include "commons/default.html"/>
-<!--[if lt IE 9]>
-  <script>window.location.href='upgrade-browser.html';</script>
-<![endif]-->
+
+<title>博客管理系统</title>
+  <#include "commons/default.html"/>
 </head>
 
 <body class="user-select">
 <div class="container">
   <div class="siteIcon"><img src="images/icon/icon.png" alt="" data-toggle="tooltip" data-placement="top" title="欢迎使用博客管理系统" draggable="false" /></div>
-  <form action="/doLogin" method="post" autocomplete="off" class="form-signin">
+  <form action="/admin/login" method="post" autocomplete="off" class="form-signin">
     <div style="color: red">${(messageInfo)!}</div>
     <h2 class="form-signin-heading">你好，请登录</h2>
     <label for="userAccount" class="sr-only">账号</label>
@@ -24,11 +22,11 @@
     <input type="password" id="userPassword" name="userPassword" class="form-control" placeholder="请输入密码" required autocomplete="off" maxlength="18">
     <a href="main.html"><button class="btn btn-lg btn-primary btn-block" type="submit" id="signinSubmit">登录</button></a>
   </form>
-  <div class="footer">
+  <!--<div class="footer">
     <p><a href="index.html" data-toggle="tooltip" data-placement="left" title="不知道自己在哪?">回到后台 →</a></p>
-  </div>
+  </div>-->
 </div>
-<script src="js/bootstrap.min.js"></script> 
+<script src="/js/bootstrap.min.js"></script>
 <script>
 $('[data-toggle="tooltip"]').tooltip();
 window.oncontextmenu = function(){

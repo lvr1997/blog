@@ -3,6 +3,7 @@
 <mapper namespace="com.xgsxd.blog.dao.CategoryMapper">
   <resultMap id="BaseResultMap" type="com.xgsxd.blog.bean.Category">
     <id column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
     <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
     <result column="category_alias" jdbcType="VARCHAR" property="categoryAlias" />
     <result column="category_marks" jdbcType="VARCHAR" property="categoryMarks" />
@@ -10,7 +11,7 @@
     <result column="category_status" jdbcType="VARCHAR" property="categoryStatus" />
   </resultMap>
   <sql id="Base_Column_List">
-    category_id, category_name, category_alias, category_marks, category_description, 
+    category_id, parent_id, category_name, category_alias, category_marks, category_description,
     category_status
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -24,10 +25,10 @@
     where category_id = #{categoryId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.xgsxd.blog.bean.Category">
-    insert into t_category (category_id, category_name, category_alias, 
+    insert into t_category (category_id,parent_id, category_name, category_alias,
       category_marks, category_description, category_status
       )
-    values (#{categoryId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{categoryAlias,jdbcType=VARCHAR}, 
+    values (#{categoryId,jdbcType=INTEGER},#{parentId,jdbcType=INTEGER} #{categoryName,jdbcType=VARCHAR}, #{categoryAlias,jdbcType=VARCHAR},
       #{categoryMarks,jdbcType=VARCHAR}, #{categoryDescription,jdbcType=VARCHAR}, #{categoryStatus,jdbcType=VARCHAR}
       )
   </insert>
@@ -36,6 +37,9 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="categoryId != null">
         category_id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
       </if>
       <if test="categoryName != null">
         category_name,
@@ -56,6 +60,9 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="categoryId != null">
         #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
       </if>
       <if test="categoryName != null">
         #{categoryName,jdbcType=VARCHAR},

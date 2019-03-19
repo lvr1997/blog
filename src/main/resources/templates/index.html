@@ -39,10 +39,8 @@
         <table class="table table-striped table-hover">
           <tbody>
             <tr>
-              <td>登录者: <span>${(userInfo.userName)!}</span>，这是您第 <span>13</span> 次登录</td>
-            </tr>
-            <tr>
-              <td>上次登录时间: 2016-01-08 15:50:28 , 上次登录IP: ::1:55570</td>
+              <td>登录者: <span>${(userInfo.userName)!}</span></td>
+              <td>登录时间: <span>${(loginTime)!}</span></td>
             </tr>
           </tbody>
         </table>
@@ -56,9 +54,9 @@
           <tbody>
             <tr>
               <td>管理员个数:</td>
-              <td>2 人</td>
-              <td>服务器软件:</td>
-              <td>Apache Tomcat 8.0 (Win64) </td>
+              <td>${(userCount)!} 人</td>
+              <td>服务器软件: </td>
+              <td>Apache Tomcat 8.0</td>
             </tr>
             <tr>
               <td>浏览器:</td>
@@ -74,13 +72,13 @@
             </tr>
             <tr>
               <td>当前登录IP:</td>
-              <td>::1:55570</td>
+              <td>${(loginIp)!}</td>
               <td>MYSQL版本:</td>
-              <td>5.5.40</td>
+              <td>5.5</td>
             </tr>
             <tr>
               <td>程序版本:</td>
-              <td class="version">YlsatCMS 1.0 <font size="-6" color="#BBB">(20160108160215)</font></td>
+              <td class="version">Blog 1.0 <font size="-6" color="#BBB">(20160108160215)</font></td>
               <td>上传文件:</td>
               <td>可以 <font size="-6" color="#BBB">(最大文件：2M ，表单：8M )</font></td>
             </tr>

@@ -17,10 +17,6 @@
     <#include "commons/aside.html"/>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
     <h1 class="page-header">操作</h1>
-        <div class="alert alert-success" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            ${(message)!}
-        </div> <#-- 添加或修改成功时提示 -->
         <ol class="breadcrumb">
           <li><a data-toggle="modal" data-target="#addUser">增加用户</a></li>
         </ol>
@@ -36,8 +32,6 @@
                 <th><span class="glyphicon glyphicon-bookmark"></span> <span class="visible-lg">用户账号</span></th>
                 <th><span class="glyphicon glyphicon-pushpin"></span> <span class="visible-lg">文章数</span></th>
                 <th><span class="glyphicon glyphicon-time"></span> <span class="visible-lg">创建时间</span></th>
-                <th><span class="glyphicon glyphicon-time"></span> <span class="visible-lg">上次登录时间</span></th>
-                <th><span class="glyphicon glyphicon-magnet"></span> <span class="visible-lg">登录地址</span></th>
                 <th><span class="glyphicon glyphicon-pencil"></span> <span class="visible-lg">操作</span></th>
               </tr>
             </thead>
@@ -51,8 +45,6 @@
                   <td>${(user.userAccount)!}</td>
                   <td></td>
                   <td>${(user.createTime?string('yyyy-MM-dd hh:mm:ss'))!}</td>
-                  <td></td>
-                  <td></td>
                   <td><a rel="1" name="see">修改</a> <a rel="1" name="delete">删除</a> <a href="/User/checked/id/1/action/n">禁用</a></td>
                 </tr>
               </#list>

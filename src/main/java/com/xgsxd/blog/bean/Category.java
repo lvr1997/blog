@@ -3,6 +3,8 @@ package com.xgsxd.blog.bean;
 public class Category {
     private Integer categoryId;
 
+    private Integer parentId;
+
     private String categoryName;
 
     private String categoryAlias;
@@ -19,6 +21,14 @@ public class Category {
 
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public Integer getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
     }
 
     public String getCategoryName() {
