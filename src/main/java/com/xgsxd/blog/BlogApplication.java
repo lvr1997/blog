@@ -7,7 +7,9 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @MapperScan("com.xgsxd.blog.dao")
 @SpringBootApplication
-@ServletComponentScan //配置扫描servlet注解
+@ServletComponentScan("com.xgsxd.utils")//配置扫描servlet注解
+
+
 public class BlogApplication {
 
     public static void main(String[] args) {
